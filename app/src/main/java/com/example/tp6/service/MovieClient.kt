@@ -7,5 +7,4 @@ import retrofit2.http.GET
 interface MovieClient {
     @GET("3/movies/get-popular-movies") // ADD BEARER
     fun getData(): Call<MovieList>
-
 }
