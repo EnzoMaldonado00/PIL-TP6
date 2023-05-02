@@ -6,6 +6,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "movies")
 class MovieEntity(
     @PrimaryKey var id: Int,
-    var originalTitle: String,
-    var poster: String
+    var title: String,
+    var poster: String,
+    var overview: String,
+    var releaseDate: String,
 )

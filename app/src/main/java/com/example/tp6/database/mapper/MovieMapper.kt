@@ -6,15 +6,19 @@ import com.example.tp6.service.model.Movie
 fun Movie.mapToDataBaseMovie(): MovieEntity =
     MovieEntity(
         id = id,
-        originalTitle = originalTitle,
+        title = title,
         poster = poster,
+        overview = overview,
+        releaseDate = releaseDate,
     )
 
 fun List<MovieEntity>.mapToLocalMovie(): List<Movie> =
     map { entity ->
         Movie(
             id = entity.id,
-            originalTitle = entity.originalTitle,
+            title = entity.title,
             poster = entity.poster,
+            overview = entity.overview,
+            releaseDate = entity.releaseDate,
         )
     }

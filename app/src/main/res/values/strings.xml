@@ -5,7 +5,10 @@
     <string name="button_text">Go!</string>
 
     <string name="card_id">ID: %1$s</string>
-    <string name="card_original_title">Original Title: %1$s</string>
+    <string name="card_title">Original Title: %1$s</string>
+    <string name="card_overview">Overview: %1$s</string>
+    <string name="card_release_date">Release Date: %1$s</string>
+    <string name="card_poster">https://image.tmdb.org/t/p/original%1$s</string>
     <string name="content_description">Content Description</string>
     <string name="list_title">Popular Movies</string>
 </resources>

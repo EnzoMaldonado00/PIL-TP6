@@ -20,9 +20,18 @@
         style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/id"
+        tools:text="Title: title" />
+
+    <TextView
+        android:id="@+id/release_date"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Title: title" />
+        tools:text="Release Date: release_date" />
 
     <ImageView
         android:id="@+id/poster"
@@ -33,5 +42,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/original_title" />
+
+    <TextView
+        android:id="@+id/overview"
+        style="@style/TextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/poster"
+        tools:text="Overview: overview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

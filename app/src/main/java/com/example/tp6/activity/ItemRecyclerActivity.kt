@@ -30,6 +30,7 @@ class ItemRecyclerActivity : AppCompatActivity() {
         val dataBase: MovieRoomDataBase by lazy {
             Room
                 .databaseBuilder(this, MovieRoomDataBase::class.java, "Movie-DataBase")
+                .fallbackToDestructiveMigration()
                 .build()
         }
 

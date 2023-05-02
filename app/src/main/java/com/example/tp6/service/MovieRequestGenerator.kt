@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object MovieRequestGenerator {
-    private const val MOVIE_API_URL = "https://developers.themoviedb.org"
+    private const val MOVIE_API_URL = "https://api.themoviedb.org"
     private const val accessToken =
         "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiYWUxNjliZDQwYjZiNDhjNzFjMjM3YmRlNjAxNDBhNyIsInN1YiI6IjY0NGFlYTU4MGMxMjU1MDVkNDdhOTQ3OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.weFV6B5AdhaIsiu-0aPskJOfyIGNL0KKqp0N5HODmSQ"
 
@@ -22,13 +22,14 @@ object MovieRequestGenerator {
 
     private val httpClient = OkHttpClient.Builder()
         .addInterceptor(OAuthInterceptor("Bearer", accessToken))
+        .build()
 
     private val builder = Retrofit.Builder()
         .baseUrl(MOVIE_API_URL)
         .addConverterFactory(GsonConverterFactory.create())
 
     fun <S> createService(serviceClass: Class<S>): S {
-        val retrofit = builder.client(httpClient.build()).build()
+        val retrofit = builder.client(httpClient).build()
         return retrofit.create(serviceClass)
     }
 }

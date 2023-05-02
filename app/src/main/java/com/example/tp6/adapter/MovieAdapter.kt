@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tp6.R
-import com.example.tp6.databinding.ActivityItemRecyclerBinding
 import com.example.tp6.databinding.ItemRecyclerBinding
 import com.example.tp6.service.model.Movie
 
@@ -28,10 +27,12 @@ class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<Movie
 
         fun bind(movie: Movie) {
             binding.id.text = itemView.context.getString(R.string.card_id, movie.id.toString())
-            binding.originalTitle.text = itemView.context.getString(R.string.card_original_title, movie.originalTitle)
+            binding.originalTitle.text = itemView.context.getString(R.string.card_title, movie.title)
+            binding.overview.text = itemView.context.getString(R.string.card_overview, movie.overview)
+            binding.releaseDate.text = itemView.context.getString(R.string.card_release_date, movie.releaseDate)
 
             Glide.with(itemView.context)
-                .load(movie.poster)
+                .load(R.string.card_poster.toString() + movie.poster)
                 .into(binding.poster)
         }
     }
