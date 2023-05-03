@@ -9,7 +9,7 @@ import com.example.tp6.database.entity.MovieEntity
     entities = [
         MovieEntity::class,
     ],
-    version = 1,
+    version = 2,
 )
 abstract class MovieRoomDataBase : RoomDatabase() {
     abstract fun movieDao(): MovieDao

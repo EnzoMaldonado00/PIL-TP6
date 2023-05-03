@@ -8,7 +8,7 @@ import androidx.room.Room
 import com.example.tp6.adapter.MovieAdapter
 import com.example.tp6.database.MovieDataBaseImpl
 import com.example.tp6.database.MovieRoomDataBase
-import com.example.tp6.databinding.ActivityItemRecyclerBinding
+import com.example.tp6.databinding.ActivityMovieListBinding
 import com.example.tp6.mvvm.contract.MainContract
 import com.example.tp6.mvvm.model.MainModel
 import com.example.tp6.mvvm.viewmodel.MainViewModel
@@ -17,19 +17,20 @@ import com.example.tp6.service.MovieClient
 import com.example.tp6.service.MovieRequestGenerator
 import com.example.tp6.service.MovieServiceImpl
 
-class ItemRecyclerActivity : AppCompatActivity() {
+class MovieListActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityItemRecyclerBinding
+    private lateinit var binding: ActivityMovieListBinding
     private lateinit var viewModel: MainContract.ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityItemRecyclerBinding.inflate(layoutInflater)
+        binding = ActivityMovieListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val dataBase: MovieRoomDataBase by lazy {
             Room
                 .databaseBuilder(this, MovieRoomDataBase::class.java, "Movie-DataBase")
+                .fallbackToDestructiveMigration()
                 .build()
         }
 
