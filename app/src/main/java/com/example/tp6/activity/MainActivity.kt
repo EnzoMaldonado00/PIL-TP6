@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnGetInfo.setOnClickListener {
-            var intent = Intent(this, ItemRecyclerActivity::class.java)
+            val intent = Intent(this, MovieListActivity::class.java)
             startActivity(intent)
         }
     }

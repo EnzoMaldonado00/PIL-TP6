@@ -16,7 +16,7 @@
         tools:text="ID: id" />
 
     <TextView
-        android:id="@+id/original_title"
+        android:id="@+id/title"
         style="@style/TextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,23 +33,28 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Release Date: release_date" />
 
-    <ImageView
-        android:id="@+id/poster"
-        android:layout_width="@dimen/image_size"
-        android:layout_height="@dimen/image_size"
-        android:layout_marginTop="@dimen/container_margin"
-        android:contentDescription="@string/content_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/original_title" />
-
-    <TextView
-        android:id="@+id/overview"
-        style="@style/TextStyle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/poster"
-        tools:text="Overview: overview" />
+        android:layout_marginTop="@dimen/container_margin"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="@dimen/image_size"
+            android:contentDescription="@string/content_description"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/overview"
+            android:textSize="@dimen/description_text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Overview: overview" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
