@@ -17,6 +17,7 @@ import com.example.tp6.mvvm.viewmodel.factory.ViewModelFactory
 import com.example.tp6.service.MovieClient
 import com.example.tp6.service.MovieRequestGenerator
 import com.example.tp6.service.MovieServiceImpl
+import com.example.tp6.util.ErrorDialog
 
 class MovieListActivity : AppCompatActivity() {
 
@@ -61,6 +62,9 @@ class MovieListActivity : AppCompatActivity() {
                     binding.recycler.layoutManager = LinearLayoutManager(this)
                     binding.recycler.adapter = MovieAdapter(data.movies)
                 }
+            }
+            MainViewModel.MainStatus.ERROR -> {
+                ErrorDialog.showErrorDialog(this)
             }
         }
     }

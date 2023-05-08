@@ -15,7 +15,7 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
 
     private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()
 
-    override fun getValue(): LiveData<MainViewModel.MainData> {
+    override fun getValue(): LiveData<MainData> {
         return mutableLiveData
     }
 
@@ -26,7 +26,7 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
                     mutableLiveData.value = MainData(MainStatus.SHOW_INFO, result.data)
                 }
                 is CoroutineResult.Failure -> {
-                    // TODO: error handler
+                    mutableLiveData.value = MainData(MainStatus.ERROR, emptyList(), result.exception)
                 }
             }
         }
@@ -35,9 +35,11 @@ class MainViewModel(private val model: MainContract.Model) : ViewModel(), MainCo
     data class MainData(
         val status: MainStatus,
         val movies: List<Movie>,
+        val exception: Exception? = null,
     )
 
     enum class MainStatus {
         SHOW_INFO,
+        ERROR,
     }
 }

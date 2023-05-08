@@ -12,4 +12,10 @@
     <string name="content_description">Content Description</string>
     <string name="list_title">Popular Movies</string>
     <string name="empty_state_text">The list is empty. Please connect to internet to load the data.</string>
+
+    <string name="error_dialog_title">Error</string>
+    <string name="error_dialog_message">An error has occurred, please restart the application.</string>
+    <string name="error_dialog_button">OK</string>
+
+
 </resources>
