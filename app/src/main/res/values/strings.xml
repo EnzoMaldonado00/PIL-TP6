@@ -16,6 +16,7 @@
     <string name="error_dialog_title">Error</string>
     <string name="error_dialog_message">An error has occurred, please restart the application.</string>
     <string name="error_dialog_button">OK</string>
+    <string name="network_error_message">Please connect to internet to load the movies list.</string>
 
 
 </resources>

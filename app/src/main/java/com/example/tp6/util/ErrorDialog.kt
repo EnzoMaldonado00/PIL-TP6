@@ -6,10 +6,10 @@ import com.example.tp6.R
 
 object ErrorDialog {
 
-    fun showErrorDialog(activity: AppCompatActivity) {
+    fun showErrorDialog(activity: AppCompatActivity, message: Int) {
         val builder = AlertDialog.Builder(activity)
         builder.setTitle(R.string.error_dialog_title)
-        builder.setMessage(R.string.error_dialog_message)
+        builder.setMessage(message)
 
         builder.setNeutralButton(R.string.error_dialog_button) { _, _ ->
         }

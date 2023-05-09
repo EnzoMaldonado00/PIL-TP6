@@ -3,6 +3,7 @@ package com.example.tp6.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tp6.R
 import com.example.tp6.databinding.ActivityMainBinding
 import com.example.tp6.util.ErrorDialog
 
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             trigger = 2 / 0
             return trigger
         } catch (e: Exception) {
-            ErrorDialog.showErrorDialog(this)
+            ErrorDialog.showErrorDialog(this, R.string.error_dialog_message)
         }
         return trigger
     }

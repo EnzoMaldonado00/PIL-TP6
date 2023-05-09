@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
+import com.example.tp6.R
 import com.example.tp6.adapter.MovieAdapter
 import com.example.tp6.database.MovieDataBaseImpl
 import com.example.tp6.database.MovieRoomDataBase
@@ -55,6 +56,7 @@ class MovieListActivity : AppCompatActivity() {
         when (data.status) {
             MainViewModel.MainStatus.SHOW_INFO -> {
                 if (data.movies.isEmpty()) {
+                    ErrorDialog.showErrorDialog(this, R.string.network_error_message)
                     binding.recycler.visibility = RecyclerView.GONE
                     binding.listTitle.visibility = RecyclerView.GONE
                     binding.emptyState.visibility = RecyclerView.VISIBLE
@@ -64,7 +66,7 @@ class MovieListActivity : AppCompatActivity() {
                 }
             }
             MainViewModel.MainStatus.ERROR -> {
-                ErrorDialog.showErrorDialog(this)
+                ErrorDialog.showErrorDialog(this, R.string.error_dialog_message)
             }
         }
     }
