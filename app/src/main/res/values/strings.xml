@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">tp6</string>
     <string name="title_text">PIL Mobile TP6</string>
-    <string name="description_text">Hello! click the button below to see what movies are popular now!</string>
+    <string name="description_text">Hello! tap the button below to see what movies are popular now!</string>
     <string name="button_text">Go!</string>
 
     <string name="card_id">ID: %1$s</string>

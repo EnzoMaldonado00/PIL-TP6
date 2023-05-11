@@ -4,6 +4,5 @@
     <style name="TextStyle">
         <item name="android:textSize">@dimen/description_text_size</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textColor">@color/black</item>
     </style>
 </resources>

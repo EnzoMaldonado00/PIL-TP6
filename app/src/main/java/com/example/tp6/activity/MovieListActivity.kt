@@ -57,7 +57,6 @@ class MovieListActivity : AppCompatActivity() {
             MainViewModel.MainStatus.SHOW_INFO -> {
                 if (data.movies.isEmpty()) {
                     showDialog(getString(R.string.network_error_message))
-                    // ErrorDialog.showErrorDialog(this, R.string.network_error_message)
                     binding.recycler.visibility = RecyclerView.GONE
                     binding.listTitle.visibility = RecyclerView.GONE
                     binding.emptyState.visibility = RecyclerView.VISIBLE
@@ -67,7 +66,7 @@ class MovieListActivity : AppCompatActivity() {
                 }
             }
             MainViewModel.MainStatus.ERROR -> {
-                // ErrorDialog.showErrorDialog(this, R.string.error_dialog_message)
+                showDialog(getString(R.string.error_dialog_message))
             }
         }
     }
