@@ -4,7 +4,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tp6.R
 
-object ErrorDialog : Exception() {
+object ErrorDialog {
 
     fun showErrorDialog(activity: AppCompatActivity, message: Int) {
         val builder = AlertDialog.Builder(activity)

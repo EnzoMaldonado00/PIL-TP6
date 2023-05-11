@@ -18,7 +18,7 @@ import com.example.tp6.mvvm.viewmodel.factory.ViewModelFactory
 import com.example.tp6.service.MovieClient
 import com.example.tp6.service.MovieRequestGenerator
 import com.example.tp6.service.MovieServiceImpl
-import com.example.tp6.util.ErrorDialog
+import com.example.tp6.util.ErrorDialogFragment
 
 class MovieListActivity : AppCompatActivity() {
 
@@ -56,7 +56,8 @@ class MovieListActivity : AppCompatActivity() {
         when (data.status) {
             MainViewModel.MainStatus.SHOW_INFO -> {
                 if (data.movies.isEmpty()) {
-                    ErrorDialog.showErrorDialog(this, R.string.network_error_message)
+                    showDialog(getString(R.string.network_error_message))
+                    // ErrorDialog.showErrorDialog(this, R.string.network_error_message)
                     binding.recycler.visibility = RecyclerView.GONE
                     binding.listTitle.visibility = RecyclerView.GONE
                     binding.emptyState.visibility = RecyclerView.VISIBLE
@@ -66,7 +67,7 @@ class MovieListActivity : AppCompatActivity() {
                 }
             }
             MainViewModel.MainStatus.ERROR -> {
-                ErrorDialog.showErrorDialog(this, R.string.error_dialog_message)
+                // ErrorDialog.showErrorDialog(this, R.string.error_dialog_message)
             }
         }
     }
@@ -74,5 +75,10 @@ class MovieListActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         viewModel.callService()
+    }
+
+    private fun showDialog(message: String) {
+        val dialogFragment = ErrorDialogFragment.newInstance(message)
+        dialogFragment.show(supportFragmentManager, "dialog")
     }
 }
