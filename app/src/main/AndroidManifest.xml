@@ -14,16 +14,16 @@
         android:theme="@style/Theme.Tp6"
         tools:targetApi="31">
         <activity
-            android:name=".activity.MovieListActivity"
-            android:parentActivityName=".activity.MainActivity">
+            android:name=".presentation.activity.MovieListActivity"
+            android:parentActivityName=".presentation.activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MainActivity"/>
+                android:value=".presentation.activity.MainActivity"/>
         </activity>
 
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".presentation.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
