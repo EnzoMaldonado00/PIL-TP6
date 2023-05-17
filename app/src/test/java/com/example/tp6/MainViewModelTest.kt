@@ -1,9 +1,9 @@
 package com.example.tp6
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.tp6.presentation.mvvm.contract.MainContract
+import com.example.tp6.domain.entity.Movie
+import com.example.tp6.presentation.mvvm.model.MainModel
 import com.example.tp6.presentation.mvvm.viewmodel.MainViewModel
-import com.example.tp6.service.model.Movie
 import com.example.tp6.util.CoroutineResult
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -26,12 +26,12 @@ import java.lang.Exception
 class MainViewModelTest {
 
     @MockK
-    private lateinit var model: MainContract.Model
+    private lateinit var model: MainModel
 
     @MockK
     private lateinit var movies: List<Movie>
 
-    private lateinit var mainViewModel: MainContract.ViewModel
+    private lateinit var mainViewModel: MainViewModel
 
     private val testDispatcher = UnconfinedTestDispatcher()
 

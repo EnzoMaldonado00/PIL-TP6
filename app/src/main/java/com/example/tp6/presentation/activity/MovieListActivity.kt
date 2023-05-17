@@ -27,18 +27,14 @@ class MovieListActivity : AppCompatActivity() {
     private fun updateUI(data: MainViewModel.MainData) {
         when (data.status) {
             MainViewModel.MainStatus.SHOW_INFO -> {
-                if (data.movies.isEmpty()) {
-                    showDialog(getString(R.string.network_error_message))
-                    binding.recycler.visibility = RecyclerView.GONE
-                    binding.listTitle.visibility = RecyclerView.GONE
-                    binding.emptyState.visibility = RecyclerView.VISIBLE
-                } else {
-                    binding.recycler.layoutManager = LinearLayoutManager(this)
-                    binding.recycler.adapter = MovieAdapter(data.movies)
-                }
+                binding.recycler.layoutManager = LinearLayoutManager(this)
+                binding.recycler.adapter = MovieAdapter(data.movies)
             }
             MainViewModel.MainStatus.ERROR -> {
-                showDialog(getString(R.string.error_dialog_message))
+                showDialog(getString(R.string.network_error_message))
+                binding.recycler.visibility = RecyclerView.GONE
+                binding.listTitle.visibility = RecyclerView.GONE
+                binding.emptyState.visibility = RecyclerView.VISIBLE
             }
         }
     }
