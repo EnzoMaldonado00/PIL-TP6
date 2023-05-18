@@ -1,4 +1,4 @@
-package com.example.tp6.util
+package com.example.tp6.domain.util
 
 sealed class CoroutineResult<out T : Any> {
     class Success<out T : Any>(val data: T) : CoroutineResult<T>()

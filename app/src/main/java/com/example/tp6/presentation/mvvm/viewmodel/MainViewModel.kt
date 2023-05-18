@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tp6.domain.entity.Movie
 import com.example.tp6.presentation.mvvm.model.MainModel
-import com.example.tp6.util.CoroutineResult
+import com.example.tp6.domain.util.CoroutineResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

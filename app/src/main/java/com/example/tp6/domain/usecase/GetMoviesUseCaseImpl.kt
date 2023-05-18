@@ -3,7 +3,7 @@ package com.example.tp6.domain.usecase
 import com.example.tp6.domain.database.MovieDataBase
 import com.example.tp6.domain.entity.Movie
 import com.example.tp6.domain.service.MovieService
-import com.example.tp6.util.CoroutineResult
+import com.example.tp6.domain.util.CoroutineResult
 
 interface GetMovieUseCase {
     suspend operator fun invoke(): CoroutineResult<List<Movie>>

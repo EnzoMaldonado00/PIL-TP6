@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.tp6.domain.entity.Movie
 import com.example.tp6.presentation.mvvm.model.MainModel
 import com.example.tp6.presentation.mvvm.viewmodel.MainViewModel
-import com.example.tp6.util.CoroutineResult
+import com.example.tp6.domain.util.CoroutineResult
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK

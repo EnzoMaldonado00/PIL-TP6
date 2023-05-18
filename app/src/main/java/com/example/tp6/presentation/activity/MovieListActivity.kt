@@ -8,7 +8,7 @@ import com.example.tp6.R
 import com.example.tp6.databinding.ActivityMovieListBinding
 import com.example.tp6.presentation.adapter.MovieAdapter
 import com.example.tp6.presentation.mvvm.viewmodel.MainViewModel
-import com.example.tp6.util.ErrorDialogFragment
+import com.example.tp6.domain.util.ErrorDialogFragment
 import org.koin.android.ext.android.inject
 
 class MovieListActivity : AppCompatActivity() {

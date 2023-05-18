@@ -1,4 +1,4 @@
-package com.example.tp6.util
+package com.example.tp6.domain.util
 
 import android.os.Bundle
 import android.view.LayoutInflater
