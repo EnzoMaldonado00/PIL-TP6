@@ -4,5 +4,5 @@ import com.example.tp6.domain.entity.Movie
 import com.example.tp6.domain.util.CoroutineResult
 
 interface MovieService {
-    fun getMovies(): CoroutineResult<List<Movie>>
+    suspend fun getMovies(): CoroutineResult<List<Movie>>
 }

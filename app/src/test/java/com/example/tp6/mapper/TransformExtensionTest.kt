@@ -1,4 +1,4 @@
-package com.example.tp6
+package com.example.tp6.mapper
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.tp6.data.entity.MovieEntity

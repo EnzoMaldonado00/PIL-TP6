@@ -1,10 +1,10 @@
-package com.example.tp6
+package com.example.tp6.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.tp6.domain.entity.Movie
-import com.example.tp6.presentation.mvvm.model.MainModel
-import com.example.tp6.presentation.mvvm.viewmodel.MainViewModel
 import com.example.tp6.domain.util.CoroutineResult
+import com.example.tp6.presentation.mvvm.model.MovieModel
+import com.example.tp6.presentation.mvvm.viewmodel.MovieViewModel
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -23,15 +23,15 @@ import org.junit.rules.TestRule
 import java.lang.Exception
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class MainViewModelTest {
+class MovieViewModelTest {
 
     @MockK
-    private lateinit var model: MainModel
+    private lateinit var model: MovieModel
 
     @MockK
     private lateinit var movies: List<Movie>
 
-    private lateinit var mainViewModel: MainViewModel
+    private lateinit var movieViewModel: MovieViewModel
 
     private val testDispatcher = UnconfinedTestDispatcher()
 
@@ -42,7 +42,7 @@ class MainViewModelTest {
     fun setup() {
         MockKAnnotations.init(this)
         Dispatchers.setMain(testDispatcher)
-        mainViewModel = MainViewModel(model)
+        movieViewModel = MovieViewModel(model)
     }
 
     @After
@@ -55,11 +55,11 @@ class MainViewModelTest {
         coEvery { model.getMovies() } returns CoroutineResult.Success(movies)
 
         runBlocking {
-            mainViewModel.callService().join()
+            movieViewModel.callService().join()
         }
 
-        assertEquals(MainViewModel.MainStatus.SHOW_INFO, mainViewModel.getValue().value?.status)
-        assertEquals(movies, mainViewModel.getValue().value?.movies)
+        assertEquals(MovieViewModel.MovieStatus.SHOW_INFO, movieViewModel.getValue().value?.status)
+        assertEquals(movies, movieViewModel.getValue().value?.movies)
     }
 
     @Test
@@ -67,9 +67,9 @@ class MainViewModelTest {
         coEvery { model.getMovies() } returns CoroutineResult.Failure(Exception())
 
         runBlocking {
-            mainViewModel.callService().join()
+            movieViewModel.callService().join()
         }
 
-        assertEquals(MainViewModel.MainStatus.ERROR, mainViewModel.getValue().value?.status)
+        assertEquals(MovieViewModel.MovieStatus.ERROR, movieViewModel.getValue().value?.status)
     }
 }

@@ -9,7 +9,7 @@ import java.lang.Exception
 
 class MovieServiceImpl(private val api: MovieRequestGenerator) : MovieService {
 
-    override fun getMovies(): CoroutineResult<List<Movie>> {
+    override suspend fun getMovies(): CoroutineResult<List<Movie>> {
         try {
             val response = api.createService(MovieApi::class.java).getData().execute()
             if (response.isSuccessful) {

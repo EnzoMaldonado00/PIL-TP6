@@ -6,14 +6,14 @@ import com.example.tp6.domain.service.MovieService
 import com.example.tp6.domain.util.CoroutineResult
 
 interface GetMoviesUseCase {
-    operator fun invoke(): CoroutineResult<List<Movie>>
+    suspend operator fun invoke(): CoroutineResult<List<Movie>>
 }
 
 class GetMoviesUseCaseImpl(
     private val movieService: MovieService,
     private val dataBase: MovieDataBase,
 ) : GetMoviesUseCase {
-    override fun invoke(): CoroutineResult<List<Movie>> {
+    override suspend fun invoke(): CoroutineResult<List<Movie>> {
         return when (val movies = movieService.getMovies()) {
             is CoroutineResult.Success -> {
                 dataBase.insertMovies(movies.data)
